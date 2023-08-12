@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width,initial scale= 1"/>
+    <title>@Page.Title</title>
+    <link href="~/content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/content/style.css" rel="stylesheet" />
+</head>
+<body>
+    <!--Navbar-->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navba-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#" class="navbar-brand">
+                    <img src="#" class="logo-size" />
+                </a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#">
+                            <i class="glyphicon glyphicon-home"></i>
+                            <!--Main-->الرئيسية
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="glyphicon glyphicon-folder-open"></i>
+                            <!--Offers Categories-->أقسام العروض
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="glyphicon glyphicon-info-sign"></i>
+                            <!--About-->حول الموقع
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="glyphicon glyphicon-envelope"></i>
+                            <!--Contact Us-->إتصل بنا
+                        </a>
+                    </li>
+                </ul>
+
+                <<!--partial log in-->
+                @Html.Partial("_login")
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="raw">
+            @RenderBody()
+        </div>
+    </div>
+    <!--Footer-->
+    <footer class="myfooter">
+        <div class="container" >
+            <div class="raw">
+                <div class="col-md-4">
+                    <h3>
+                        <i class="glyphicon glyphicon-question-sign"></i>
+                        <!--who are we?-->من نحن؟
+                    </h3>
+                    <p>
+                        السلام عليكم ورحمة الله وبركاته, تسعدنا زيارتكم لهذه الصفحة,مع تحيات فريق العمل.
+                        نتشرف باستقبال اقتراحاتكم وآرائكم على العناوين التالية:
+                        هاتف: 0531107801
+                        ايميل: enghussam4045@gmail.com
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <h3>
+                        <i class="glyphicon glyphicon-globe"></i>
+                        <!--important urls-->
+                        روابط هامة
+                    </h3>
+                    <ul>
+                        <li><a href="#"><!--general sector jobs-->وظائف القطاع العام</a></li>
+                        <li><a href="#"><!--private sector jobs-->وظائف القطاع الخاص</a></li>
+                        <li><a href="#"><!--External jobs-->وظائف خارج البلاد</a></li>
+                        <li><a href="#"><!--Other jobs-->وظائف متنوعة</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h3>
+                        <i class="glyphicon glyphicon-envelope"></i>
+                        <!--Contact Us-->تواصل معنا
+                    </h3>
+                    <ul>
+                        <li><a href="https://www.facebook.com/hussam.morad.9" target="_blank"><!--follow us on Facebook-->صفحتنا على الفيسبوك</a></li>
+                        <li><a href="#"><!--follow Us on tweeter-->تابعنا على التويتر</a></li>
+                        <li><a href="#"><!--watch us on Youtube-->شاهدنا على اليوتيوب</a></li>
+                        <li><a href="#"><!--Leave a messagm-->اترك لنا رسالة</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="subfooter">
+
+                <span style="background-color:black !important;text-align:center;padding: 20px;"> <!--All copyright saved for jobs_offer web-2019-->جميع الحقوق محفوظة لموقع التوظيف - 2019 </span>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="~/scripts/jquery.js"></script>
+    <script src="~/scripts/bootstrap.min.js"></script>
+
+    @RenderSection("scripts",required:false)
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+﻿@model job_offers_websit.Models.Job
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/shared/_mainLayout1.cshtml";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm("create", "Jobs", FormMethod.Post, new { enctype = "multipart/form-data" }))//how the dataFile will be sent to the server
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <div class="alert alert-danger" id="error-div" style="display:none">
+        <span id="view-error">
+
+        </span>
+    </div>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.JobTitle, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.JobTitle, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.JobTitle, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.JobContent, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.JobContent, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.JobContent, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.JobImage, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input type="file" name="upload" id="jobimage1" />
+            @Html.ValidationMessageFor(model => model.JobImage, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.CategoryId, "نوع الوظيفة", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("CategoryId", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" id="save1" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section scripts{
+    <script>
+    $(function () {
+        $("#save1").click(function () {
+            if ($("#jobimage1").val() == "") {
+                $("#error-div").fadeIn();
+                $("#view-error").append("رجاء اختر صورة الوظيفة");
+                return false;
+            }
+        });
+    });
+    </script>
+}

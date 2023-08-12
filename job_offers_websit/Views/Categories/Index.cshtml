@@ -1,0 +1,40 @@
+﻿@model IEnumerable<job_offers_websit.Models.Category>
+
+@{
+    ViewBag.Title = "قائمة أنواع الوظائف";
+    Layout = "~/Views/shared/_mainLayout1.cshtml";
+}
+
+<h2>قائمة أنواع الوظائف</h2>
+
+<p>
+    @Html.ActionLink("إنشاء نوع جديد", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CategoryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CategoryDescription)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CategoryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CategoryDescription)
+        </td>
+        <td>
+            @Html.ActionLink("تعديل", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("تفاصيل", "Details", new { id=item.ID }) |
+            @Html.ActionLink("حذف", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
